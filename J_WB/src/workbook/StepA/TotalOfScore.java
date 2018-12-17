@@ -12,6 +12,7 @@ public class TotalOfScore {
 	public TotalOfScore() {
 		input();
 	}
+	
 	void input() {
 		Scanner s = new Scanner(System.in);
 		System.out.printf("국어 점수를 입력하세요. ");

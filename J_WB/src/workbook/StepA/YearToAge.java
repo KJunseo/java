@@ -7,6 +7,7 @@ public class YearToAge {
 	private int age;
 	
 	public YearToAge(){input();}
+	
 	public void printAge() {
 		System.out.printf("당신의 나이는 %d입니다.\n", getAge());
 	}	

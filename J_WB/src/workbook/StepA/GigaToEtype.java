@@ -11,6 +11,7 @@ public class GigaToEtype {
 	public GigaToEtype() {
 		input();
 	}
+	
 	void input() {
 		Scanner s = new Scanner(System.in);
 		System.out.printf("파일 용량을 기가바이트 단위로 입력하세요. ");

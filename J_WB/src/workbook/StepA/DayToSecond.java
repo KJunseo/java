@@ -9,6 +9,7 @@ public class DayToSecond {
 	public DayToSecond() {
 		input();
 	}
+	
 	void input() {
 		Scanner s = new Scanner(System.in);
 		System.out.printf("날 수를 입력하세요. ");
