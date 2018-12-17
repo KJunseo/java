@@ -7,7 +7,6 @@ public class TcToTf {
 	private double f_degree;
 	
 	public TcToTf(){input();}
-	
 	public void printTf() {
 		System.out.printf("화씨 온도는 %.1f입니다.\n", getTf());
 	}	

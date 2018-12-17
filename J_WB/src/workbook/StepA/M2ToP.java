@@ -9,7 +9,6 @@ public class M2ToP {
 	public M2ToP() {
 		input();
 	}
-	
 	void input() {
 		Scanner s = new Scanner(System.in);
 		System.out.printf("아파트의 문양 면적을 입력하시오. ");

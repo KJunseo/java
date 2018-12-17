@@ -6,7 +6,6 @@ public class StepAManager {
 	public StepAManager() {
 		int menu;
 		Scanner s = new Scanner(System.in);
-		
 		while(true) {
 			printf("---------------------\n");
 			printf("1. 나이계산\n");
