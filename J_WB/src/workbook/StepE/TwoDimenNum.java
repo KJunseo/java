@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class TwoDimenNum {
 	private int rows;
 	private int columns;
-	private int number;
 	
 	public TwoDimenNum() {
 		input();
@@ -19,7 +18,7 @@ public class TwoDimenNum {
 	public void printTable() {
 		for(int i=1;i<rows+1;i++) {
 			for(int j=1;j<columns+1;j++) {
-				number=i*j;
+				int number=i*j;
 				System.out.printf("%4d",number);
 				if(j%columns==0) {
 					System.out.println();
