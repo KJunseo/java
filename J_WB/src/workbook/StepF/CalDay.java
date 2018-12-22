@@ -6,7 +6,6 @@ public class CalDay {
 	private int [] monthdays = {31,28,31,30,31,30,31,31,30,31,30,31};
 	private int month;
 	private int day;
-	private int day_count;
 	
 	public CalDay() {
 		input();
@@ -19,11 +18,12 @@ public class CalDay {
 		this.day = s.nextInt();
 	}
 	int getDay() {
-			for(int i=0;i<month-1;i++) {
-				day_count = day_count + monthdays[i];
-			}
-			day_count = day_count+day;
-		return this.day_count;
+		int day_count = 0;
+		for(int i=0;i<month-1;i++) {
+			day_count = day_count + monthdays[i];
+		}
+		day_count = day_count+day;
+		return day_count;
 	}
 	public void printDay() {
 		if((month<1)||(month>12)||(day>monthdays[month-1])) {

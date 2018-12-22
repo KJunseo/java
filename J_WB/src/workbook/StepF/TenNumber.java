@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class TenNumber {
 	private int [] number = new int[10];
-	private int count;
-	private boolean dup;
 	
 	public TenNumber() {
 		input();
 	}
 	void input() {
+		int count=0;
+		boolean dup;
 		Scanner s = new Scanner(System.in);
 		System.out.printf("1부터 100사이의 숫자를 입력하시오.\n");
 		for(count=0;count<number.length;) {

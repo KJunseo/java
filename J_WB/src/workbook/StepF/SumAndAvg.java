@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class SumAndAvg {
 	private int [][] jumsu = new int[5][3];
 	private int [] sum = new int[3];
-	private double [] average = new double[3];
 	private int kor;
 	private int eng;
 	private int mat;
@@ -33,8 +32,9 @@ public class SumAndAvg {
 		mat = sum[2];
 	}
 	double getAvg(int i) {
-			average[i] = (double)sum[i]/jumsu.length;
-			return this.average[i];
+		double [] average = new double[3];
+		average[i] = (double)sum[i]/jumsu.length;
+		return average[i];
 	}
 	public void printSV() {
 		getSum();

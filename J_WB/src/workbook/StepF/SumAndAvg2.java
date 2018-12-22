@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class SumAndAvg2 {
 	private int [][] jumsu = new int[5][3];
 	private int [] sum = new int [5];
-	private double [] average = new double [5];
 	
 	public SumAndAvg2() {
 		input();
@@ -27,8 +26,9 @@ public class SumAndAvg2 {
 		return this.sum[i];
 	}
 	double getAvg(int i) {
+		double [] average = new double [5];
 		average[i] = (double)sum[i]/3;
-		return this.average[i];
+		return average[i];
 	}
 	public void printSV() {
 		for(int i=0;i<jumsu.length;i++) {

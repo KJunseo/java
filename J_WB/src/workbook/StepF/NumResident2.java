@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class NumResident2 {
 	private int [][] number = new int[5][3];
-	private int [] floor_total = new int[5];
-	private int [] line_total = new int[3];
-	private int total;
 	
 	public NumResident2() {
 		input();
@@ -21,24 +18,27 @@ public class NumResident2 {
 		}
 	}
 	int getTotal() {
+		int total=0;
 		for(int i=0;i<number.length;i++) {
 			for(int j=0;j<3;j++) {
 				total = total + number[i][j];
 			}	
 		}
-		return this.total;
+		return total;
 	}
 	int getFloor(int i) {
+		int [] floor_total = new int[5];
 		for(int j=0;j<3;j++) {
 			floor_total[i] = floor_total[i] + number[i][j];
 		}
-		return this.floor_total[i];
+		return floor_total[i];
 	}
 	int getLine(int i) {
-			for(int j=0;j<number.length;j++) {
-				line_total[i] = line_total[i] + number[j][i];
-			}
-			return this.line_total[i];
+		int [] line_total = new int[3];
+		for(int j=0;j<number.length;j++) {
+			line_total[i] = line_total[i] + number[j][i];
+		}
+		return line_total[i];
 	}
 	public void printNum() {
 		for(int i=0;i<number.length;i++) {

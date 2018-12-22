@@ -4,10 +4,6 @@ import java.util.Scanner;
 
 public class CalScore {
 	private double [] score = new double[10];
-	private double maxscore;
-	private double minscore;
-	private double total;
-	private double average;
 	
 	public CalScore() {
 		input();
@@ -20,8 +16,10 @@ public class CalScore {
 		}
 	}
 	double getAvg(double [] score) {
-		maxscore = score[0];
-		minscore = score[0];
+		double total = 0;
+		double average = 0;
+		double maxscore = score[0];
+		double minscore = score[0];
 		for(int i=0;i<score.length;i++) {
 			if(maxscore<score[i]) {
 				maxscore = score[i];
@@ -33,7 +31,7 @@ public class CalScore {
 		}
 		total = total - maxscore - minscore;
 		average = total/8;
-		return this.average;
+		return average;
 	}
 	public void printAvg() {
 		System.out.printf("가장 큰 점수와 가장 작은 점수를 제외한 8개의 점수에 대한 평균은 %.1f 입니다.\n",getAvg(score));

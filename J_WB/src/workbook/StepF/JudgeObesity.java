@@ -3,9 +3,7 @@ package workbook.StepF;
 import java.util.Scanner;
 
 public class JudgeObesity {
-	private double bmi;
 	private int [][] bmilist = new int [10][3];
-	private int count;
 	
 	public JudgeObesity() {
 		input();
@@ -20,10 +18,11 @@ public class JudgeObesity {
 		}
 	}
 	double getBmi(int i) {
-		bmi = bmilist[i][1]/((bmilist[i][0]*0.01)*(bmilist[i][0]*0.01));
+		double bmi = bmilist[i][1]/((bmilist[i][0]*0.01)*(bmilist[i][0]*0.01));
 		return bmi;
 	}
 	public void printObesity() {
+		int count=0;
 		for(int i=0;i<bmilist.length;i++) {
 			if(getBmi(i)>=25) {
 				System.out.printf((i+1) + "번째 사람은 비만입니다.\n");
