@@ -16,12 +16,15 @@ public class RightTriangle {
 		this.blank = s.nextInt();
 	}
 	public void printResult() {
-		for(int i=0;i<height;i++) {
+		for(int i=1;i<height+1;i++) {
 			blank = height-i;
-			for(int j=blank;j>0;j--) {
+			for(int j=0;j<blank;j++) {
 				System.out.printf(" ");
 			}
-			for(int j=0;j<i+1;j++) {
+			for(int j=0;j<height-j;j++) {
+				System.out.printf(" ");
+			}
+			for(int j=0;j<height-blank;j++) {
 				System.out.printf("*");
 			}
 			System.out.println();
