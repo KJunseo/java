@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class VendingMachine {
 	private int count;
 	private int total_sum;
-	
+
 	public VendingMachine() {
 		input();
 	}
