@@ -6,7 +6,6 @@ public class CalculateAge {
 	
 	private int age[] = new int[100];
 	private int count[]= {0,0,0,0,0,0};
-	private String name[] = {"유아는","어린이는","청소년은","청년은","중년은","노년은"};
 	private int count_person;
 	
 	public CalculateAge() {
@@ -32,6 +31,7 @@ public class CalculateAge {
 		}
 	}
 	public void printAge() {
+		String name[] = {"유아는","어린이는","청소년은","청년은","중년은","노년은"};
 		for(int i=0;i<count_person;i++) {
 			System.out.printf("%d 번째 사람의 나이는 %d 입니다.\n", i+1,age[i]);
 		}
