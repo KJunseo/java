@@ -17,7 +17,7 @@ public class CheckLotto {
 		Random r = new Random();
 		for(int i=0;i<lotto_com.length;i++) {
 			lotto_com[i] = r.nextInt(45)+1;
-			if(checkSame_C(i)!=1) {
+			if(checkSame(i,lotto_com)!=1) {
 				i--;
 				count--;
 			}
@@ -30,7 +30,7 @@ public class CheckLotto {
 		for(int i=0;i<lotto_user.length;i++) {
 			System.out.printf("원하는 %d 번째 로또 숫자를 입력하세요. ", i+1);
 			this.lotto_user[i] = s.nextInt();
-			if(checkSame_U(i)!=1) {
+			if(checkSame(i,lotto_user)!=1||lotto_user[i]>45||lotto_user[i]<1) {
 				System.out.println("=> 잘못 입력하셨습니다.");
 				i--;
 				count--;
@@ -38,17 +38,9 @@ public class CheckLotto {
 			count++;
 		}
 	}
-	int checkSame_C(int check) {
+	int checkSame(int check,int[]lotto) {
 		for(int j=0;j<count;j++) {
-			if(lotto_com[check]==lotto_com[j]) {
-				return -1;
-			}
-		}
-		return 1;
-	}
-	int checkSame_U(int check) {
-		for(int j=0;j<count;j++) {
-			if((lotto_user[check]==lotto_user[j])||lotto_user[check]>45||lotto_user[check]<1) {
+			if(lotto[check]==lotto[j]) {
 				return -1;
 			}
 		}
