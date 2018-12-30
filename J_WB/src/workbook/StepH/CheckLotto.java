@@ -5,55 +5,70 @@ import java.util.Random;
 
 public class CheckLotto {
 	private int lotto_user[] = new int[6];
+	private int lotto_com[] = new int[6];
 	private int count;
 	
 	public CheckLotto() {
-		input();
+		com_input();
+		user_input();
 	}
-	void input() {
+	void com_input() {
+		count=0;
+		Random r = new Random();
+		for(int i=0;i<lotto_com.length;i++) {
+			lotto_com[i] = r.nextInt(45)+1;
+			if(checkSame_C(i)!=1) {
+				i--;
+				count--;
+			}
+			count++;
+		}
+	}
+	void user_input() {
 		count=0;
 		Scanner s = new Scanner(System.in);
 		for(int i=0;i<lotto_user.length;i++) {
 			System.out.printf("원하는 %d 번째 로또 숫자를 입력하세요. ", i+1);
 			this.lotto_user[i] = s.nextInt();
-			for(int j=0;j<count;j++) {
-				if((lotto_user[i]==lotto_user[j])||lotto_user[i]<=0||lotto_user[i]>45) {
-					System.out.println("=> 잘못 입력하셨습니다.");
-					i--;
-					count--;
-				}
+			if(checkSame_U(i)!=1) {
+				System.out.println("=> 잘못 입력하셨습니다.");
+				i--;
+				count--;
 			}
 			count++;
 		}
 	}
-	void com_input() {
-		
+	int checkSame_C(int check) {
+		for(int j=0;j<count;j++) {
+			if(lotto_com[check]==lotto_com[j]) {
+				return -1;
+			}
+		}
+		return 1;
 	}
-	public void printWin() {
-		int lotto_com[] = new int[6];
+	int checkSame_U(int check) {
+		for(int j=0;j<count;j++) {
+			if((lotto_user[check]==lotto_user[j])||lotto_user[check]>45||lotto_user[check]<1) {
+				return -1;
+			}
+		}
+		return 1;
+	}
+	int winNum() {
 		int match_count=0;
-		count=0;
-		Random r = new Random();
-		for(int i=0;i<lotto_com.length;i++) {
-			lotto_com[i] = r.nextInt(45)+1;
-			for(int j=0;j<count;j++) {
-				if(lotto_com[i]==lotto_com[j]) {
-					i--;
-					count--;
-				}
-			}
-			count++;
-		}
 		for(int i=0;i<6;i++)
 			for(int j=0;j<6;j++) {
 				if(lotto_com[i]==lotto_user[j])
 					match_count++;
 			}
+		return match_count;
+	}
+	public void printWin() {
 		System.out.printf("\n이번 주의 로또 당첨 번호는 ");
 		for(int i=0;i<lotto_com.length;i++) 
 			System.out.printf(" %d ", lotto_com[i]);
 		System.out.println("입니다.\n");
-		System.out.println("일치하는 로또 번호는 " + match_count + "개 입니다.");
+		System.out.println("일치하는 로또 번호는 " + winNum() + "개 입니다.");
 		
 	}
 }
