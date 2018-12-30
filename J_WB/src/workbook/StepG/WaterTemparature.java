@@ -19,29 +19,22 @@ public class WaterTemparature {
 			}
 		}
 	}
-	public void printWater() {
+	int getDegreeSection(int degree) {
 		int sel;
+		if(degrees[degree]>=0&&degrees[degree]<25) sel=0;
+		else if(degrees[degree]>=25&&degrees[degree]<40) sel=1;
+		else if(degrees[degree]>=40&&degrees[degree]<80) sel=2;
+		else sel=3;
+		return sel;
+		
+	}
+	public void printWater() {
 		int count[] = {0,0,0,0};
 		String degree_name[] = {"냉수","미온수","온수","끓는물"};
 		for(int i=0;i<degrees.length;i++) {
 			System.out.printf("%d번 물의 온도는 %.1f도 입니다. ", i+1, degrees[i]);
-			if(degrees[i]>=0&&degrees[i]<25) {
-				sel=0;
-				count[0]++;
-			}
-			else if(degrees[i]>=25&&degrees[i]<40) {
-				sel=1;
-				count[1]++;
-			}
-			else if(degrees[i]>=40&&degrees[i]<80) {
-				sel=2;
-				count[2]++;
-			}
-			else {
-				sel=3;
-				count[3]++;
-			}
-			System.out.println(degree_name[sel]);
+			count[getDegreeSection(i)]++;
+			System.out.println(degree_name[getDegreeSection(i)]);
 		}
 		for(int i=0;i<degree_name.length;i++) {
 			System.out.printf(degree_name[i]+" 입력 횟수: %d\n", count[i]);
