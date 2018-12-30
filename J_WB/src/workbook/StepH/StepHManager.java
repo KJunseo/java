@@ -51,7 +51,6 @@ public class StepHManager {
 				break;
 			case 8:	
 				ChangeString cs = new ChangeString();
-				cs.fix();
 				break;
 			case 9:
 				PrintInformation pi = new PrintInformation();
