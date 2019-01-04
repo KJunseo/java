@@ -3,15 +3,20 @@ package workbook.StepI;
 import java.util.Scanner;
 
 public class VendingMachine {
-	private int count;
-	private int total_sum;
-
+	private int count=0;
+	private int total_sum=0;
+	private static final int PRICE_COKE = 700;
+	private static final int PRICE_COFFEE = 300;
+	private static final int PRICE_LEMON = 1000;
+	private static final int PRICE_TEA = 500;
+	private static final int PRICE_COCOA = 600;
+	
 	public VendingMachine() {
 		input();
 	}
 	int selectCan() {
 		int select;
-		int price[]= {700,300,1000,500,600};
+		int price[]= {PRICE_COKE,PRICE_COFFEE,PRICE_LEMON,PRICE_TEA,PRICE_COCOA};
 		Scanner s = new Scanner(System.in);
 		System.out.printf("메뉴를 선택해주세요: ");
 		select = s.nextInt();
