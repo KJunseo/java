@@ -19,11 +19,9 @@ public class StoreMenu {
 				break;
 			case 2:
 				edit();
-				System.out.println("수정되었습니다.");
 				break;
 			case 3:
 				delete();
-				System.out.println("삭제되었습니다.");
 				break;
 			case 4:
 				show();
@@ -56,16 +54,26 @@ public class StoreMenu {
 		show();
 		System.out.printf("==>수정할 번호를 입력하세요.: ");
 		int num = s.nextInt();
+		if(num>m.size()||num<=0) {
+			System.out.println("입력하신 번호는 없는 번호입니다.");
+			return;
+		}
 		System.out.printf("==>메뉴의 메뉴명, 원산지, 가격을 입력하시오. ");
 		m.get(num-1).menu_name = s.next();
 		m.get(num-1).origin = s.next();
 		m.get(num-1).price = s.nextInt();
+		System.out.println("수정되었습니다.");
 	}
 	void delete() {
 		show();
 		System.out.printf("==>삭제할 번호를 입력하시오: ");
 		int num = s.nextInt();
+		if(num>m.size()||num<=0) {
+			System.out.println("입력하신 번호는 없는 번호입니다.");
+			return;
+		}
 		m.remove(m.get(num-1));
+		System.out.println("삭제되었습니다.");
 	}
 	void show() {
 		System.out.println("메뉴번호\t메뉴이름\t원산지\t1인분가격");
@@ -82,7 +90,7 @@ public class StoreMenu {
 		pw.write(list);
 		pw.println("-----------------------------------------------------");
 		for(int i=0;i<m.size();i++) {
-			pw.write((i+1)+"\t\t"+m.get(i).menu_name+"\t\t"+m.get(i).origin+"\t"+m.get(i).price+"\r\n");
+			pw.write((i+1)+"\t\t"+m.get(i).menu_name+"\t"+m.get(i).origin+"\t"+m.get(i).price+"\r\n");
 		}
 		pw.close();
 	}
